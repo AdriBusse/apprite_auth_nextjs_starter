@@ -38,17 +38,11 @@ function Login() {
     }
   }, [account.user, account.loading])
 
-  const [reqError, setReqError] = useState("")
   const onLoginSubmit = async () => {
-    try {
-      const [session, error] = await account.operations.login(
-        getValues().email,
-        getValues().password
-      )
-      session === null && setReqError(error.message)
-    } catch (error) {
-      setReqError(error.message)
-    }
+    const [session, error] = await account.operations.login(
+      getValues().email,
+      getValues().password
+    )
   }
 
   return (
@@ -65,7 +59,9 @@ function Login() {
         </CardHeader>
         <CardBody>
           <div className={"h-4 mb-4"}>
-            {reqError && <small className={"text-red-500"}>{reqError}</small>}
+            {account.error && (
+              <small className={"text-red-500"}>{account.error}</small>
+            )}
           </div>
           <form onSubmit={handleSubmit(onLoginSubmit)}>
             <div className="flex flex-col w-full mb-6 md:mb-0 ">

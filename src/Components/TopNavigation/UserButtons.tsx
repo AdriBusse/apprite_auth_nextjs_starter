@@ -12,7 +12,7 @@ import {
   NavbarItem,
 } from "@nextui-org/react"
 import { User } from "@nextui-org/user"
-import React, { useEffect } from "react"
+import React from "react"
 
 import Link from "next/link"
 import { useRouter } from "next/navigation"
@@ -22,14 +22,10 @@ import IconChats from "../Icons/IconChats"
 import IconLogout from "../Icons/IconLogout"
 
 function UserButtons() {
-  const { account, avatar } = useAppwrite()
+  const { account } = useAppwrite()
   const iconClasses =
     "text-xl text-default-500 pointer-events-none flex-shrink-0"
   const router = useRouter()
-
-  useEffect(() => {
-    console.log({ error: account.error, user: account.user })
-  }, [account.user])
 
   if (account.loading) {
     return <></>

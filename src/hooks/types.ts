@@ -12,7 +12,7 @@ export interface IAccountOps {
       email: string,
       password: string,
       name?: string
-    ) => Promise<IResultError<Models.User<Models.Preferences>>>
+    ) => Promise<IResultError<Models.Session>>
     login: (
       email: string,
       password: string

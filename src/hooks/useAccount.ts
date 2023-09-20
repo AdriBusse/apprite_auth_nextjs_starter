@@ -30,11 +30,13 @@ export default function useAccount(client: Client): IAccountOps {
     const wrapped = await wrap(() => {
       return account.create(ID.unique(), email, password, name)
     })
+    if (wrapped[1] !== null) {
+      setError(wrapped[1])
+      return wrapped
+    }
+    const ses = await login(email, password)
 
-    const accInfor = await account.get()
-    setUser(accInfor)
-    setError(wrapped[1])
-    return wrapped
+    return ses
   }
 
   async function login(email: string, password: string) {
