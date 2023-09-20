@@ -1,3 +1,33 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": [
+    "next/core-web-vitals",
+    "plugin:@typescript-eslint/recommended",
+    "prettier"
+  ],
+  "plugins": [
+    "unused-imports",
+    "@typescript-eslint",
+    "prettier"
+  ],
+  "rules": {
+    "prettier/prettier": "error",
+    "arrow-body-style": "off",
+    "prefer-arrow-callback": "off",
+    "no-unused-vars": "off",
+    "unused-imports/no-unused-imports": "error",
+    "@next/next/no-document-import-in-page": "off",
+    "@typescript-eslint/no-unused-vars": "warn",
+    "@typescript-eslint/no-empty-interface": "off",
+    "@typescript-eslint/no-explicit-any": "warn"
+  },
+  "ignorePatterns": [
+    ".next/*",
+    "cypress/*",
+    "node_modules/*",
+    "public/*",
+    "storybook-static/*",
+    "plopfile.js",
+    "cypress.config.ts",
+    "*.test.*"
+  ]
 }

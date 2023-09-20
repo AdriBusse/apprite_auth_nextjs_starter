@@ -1,0 +1,13 @@
+# Folders
+.next/*
+build/*
+node_modules/*
+storybook-static/*
+
+# Files
+package.json
+yarn.lock
+review/templates/app-deployment.yaml
+review/templates/storybook-deployment.yaml
+
+*.min.js
